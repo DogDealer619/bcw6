@@ -12,7 +12,7 @@ class Pen {
         $this->maxSymbols = $maxSymbols;
     }
 
-    public function __toString() {
+    public function __toString():string {
         return "Paper (" . $this->symbols . "/" . $this->maxSymbols . ")";
     }
 

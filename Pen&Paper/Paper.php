@@ -11,7 +11,7 @@ class Paper {
         $this->content = '';
     }
 
-    public function __toString() {
+    public function __toString():string {
         return "Paper (" . strlen($this->content) . "/" . $this->maxSymbols . ")";
     }
 
