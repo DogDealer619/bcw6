@@ -3,25 +3,19 @@
 require_once 'OutOfSpaceException.php';
 
 class Paper {
-    private $maxSymbols;
-    private $content;
+    private int $maxSymbols;
+    private string $content;
 
-    public function __construct($maxSymbols = 1024) {
+    public function __construct(int $maxSymbols = 1024) {
         $this->maxSymbols = $maxSymbols;
         $this->content = '';
     }
 
     public function __toString() {
-        $out = [];
-        $out[] = "Paper (";
-        $out[] = strlen($this->content);
-        $out[] = "/";
-        $out[] = $this->maxSymbols;
-        $out[] = ")";
-        return implode("", $out);
+        return "Paper (" . strlen($this->content) . "/" . $this->maxSymbols . ")";
     }
 
-    public function addContent($message) {
+    public function addContent(string $message) {
         $available = $this->maxSymbols - strlen($this->content);
 
         if ($available <= 0) {

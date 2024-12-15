@@ -4,25 +4,19 @@ require_once 'OutOfInkException.php';
 require_once 'Paper.php';
 
 class Pen {
-    private $symbols;
-    private $maxSymbols;
+    private int $symbols;
+    private int $maxSymbols;
 
-    public function __construct($maxSymbols = 4096) {
+    public function __construct(int $maxSymbols = 4096) {
         $this->symbols = $maxSymbols;
         $this->maxSymbols = $maxSymbols;
     }
 
     public function __toString() {
-        $out = [];
-        $out[] = "Pen: (";
-        $out[] = $this->symbols;
-        $out[] = "/";
-        $out[] = $this->maxSymbols;
-        $out[] = ")";
-        return implode("", $out);
+        return "Paper (" . $this->symbols . "/" . $this->maxSymbols . ")";
     }
 
-    public function write($paper, $message) {
+    public function write($paper, string $message) {
         if ($this->symbols == 0) {
             throw new OutOfInkException("The pen is out of ink.");
         }
