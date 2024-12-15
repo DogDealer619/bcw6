@@ -13,10 +13,10 @@ class Pen {
     }
 
     public function __toString():string {
-        return "Paper (" . $this->symbols . "/" . $this->maxSymbols . ")";
+        return "Pen (" . $this->symbols . "/" . $this->maxSymbols . ")";
     }
 
-    public function write($paper, string $message) {
+    public function write(Paper $paper, string $message) {
         if ($this->symbols == 0) {
             throw new OutOfInkException("The pen is out of ink.");
         }
